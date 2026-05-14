@@ -16,8 +16,8 @@
             <!-- マーカーを登録（プリセットされている「hiro」マーカー） -->
             <a-assets>
                 <a-asset-item
-                    id="earth-fbx"
-                    src="img/uploads_files_7032098_earth.fbx"
+                    id="earth"
+                    src="img/uploads_files_5495294_Earth.glb"
                 ></a-asset-item>
             </a-assets>
 
@@ -31,10 +31,10 @@
             <!-- マーカーを表示 -->
             <a-marker type="pattern" url="img/pattern-QR_725882.patt">
                 <a-entity
-                    obj-model="fbx: #earth-fbx"
+                    gltf-model="earth"
                     position="0 0 0"
                     scale="0.3 0.3 0.3"
-                    material="color: #88ccff"
+                    rotation="0 0 0"
                     animation="property: rotation; to: 0 360 0; loop: true; dur: 6000; easing: linear"
                 ></a-entity>
             </a-marker>
