@@ -21,8 +21,12 @@
             <!-- 明るさ調整 -->
             <a-entity light="type: ambient; intensity: 1.2"></a-entity>
             <a-entity
-                light="type: directional; intensity: 0.8"
-                position="1 1 0"
+                id="earth-model"
+                gltf-model="#earth"
+                position="0 0 0"
+                scale="0.3 0.3 0.3"
+                rotation="0 0 0"
+                animation="property: rotation; to: 0 360 0; loop: true; dur: 6000; easing: linear; pauseEvents: pauseRotation; resumeEvents: resumeRotation"
             ></a-entity>
 
             <!-- マーカーを表示 -->
@@ -38,5 +42,20 @@
 
             <a-entity camera></a-entity>
         </a-scene>
+        <script>
+            const earthModel = document.querySelector("#earth-model");
+
+            let isRotating = true;
+
+            window.addEventListener("pointerdown", () => {
+                if (isRotating) {
+                    earthModel.emit("pauseRotation");
+                } else {
+                    earthModel.emit("resumeRotation");
+                }
+
+                isRotating = !isRotating;
+            });
+        </script>
     </body>
 </html>
